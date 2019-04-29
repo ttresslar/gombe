@@ -503,8 +503,16 @@
             position: "left"
         }).addTo(map);
 
+        let gsm2g = L.tileLayer("https://www.mobilecoveragemaps.com/static/raster/2G_coverage/{z}/{x}/{-y}.png", {attribution: '&copy; OSM contributors'});
+        let gsm3g = L.tileLayer("https://www.mobilecoveragemaps.com/static/raster/3G_coverage/{z}/{x}/{-y}.png", {attribution: '&copy; OSM contributors'});
+        let gsm4g = L.tileLayer("https://www.mobilecoveragemaps.com/static/raster/4G_coverage/{z}/{x}/{-y}.png", {attribution: '&copy; OSM contributors'});
+        
         let overlayMaps = {
-            "Priority Clusters": markers
+            "Priority Clusters": markers,
+            "Mine Locations" : tz_mining,
+            "Network:2G": gsm2g,
+            "Network:3G": gsm3g,
+            "Network:4G": gsm4g
         };
         L.control.layers(baseMaps, overlayMaps).addTo(map);
         map.on("layeradd",function (){vecTileLayer.bringToFront();});
