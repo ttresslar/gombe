@@ -1,3 +1,6 @@
+This is a slight modification of the tzmapping tool. We have added cell phone reception data and mining data, both of which we found useful for identifying target areas. We have also added a form to report any issues with the map data. The form is connected to a google sheet that we are sharing with open street maps, so that the data is updated.   
+
+---------------------------------------------------------------
 Webmap (using leaflet) for visualizing village cluster identification and prioritization for off-grid electrification in Tanzania.
 
 <p style="text-align:center;"><img src="images/readme-image.png" heigth="700" width="480" alt="Image"></p>
