@@ -349,8 +349,9 @@
                       <tr><td align="center" colspan="2"><b><u>Priority Cluster</u></b></td></tr>\
                       <tr><td align="right"><b>Region</b>:</td><td>'+info.R+'</td></tr>\
                       <tr><td align="right"><b>District</b>:</td><td>'+info.D+'</td></tr>\
-                      <tr><td align="right"><b>Village</b>:</td><td>'+info.V+'</td></tr>\
                       <tr><td align="right"><b>Ward</b>:</td><td>'+info.W+'</td></tr>\
+                      <tr><td align="right"><b>Village</b>:</td><td>'+info.V+'</td></tr>\
+                      <tr><td align="right"><b>GPS</b>:</td><td>'+point[LAT]+','+point[LONG]+'</td></tr>\
                       <tr><td align="right"><b>Grid Access</b>:</td><td>no</td></tr>\
                       <tr><td align="right"><b>Dist. to Grid</b>:</td><td>'+info.DIST+' km</td></tr>\
                       <tr><td align="right"><b>Population</b>:</td><td>'+info.POP+'</td></tr>\
@@ -367,7 +368,44 @@
             this.addLayers(markerList);
             map.addLayer(this);
         };
+        
+        let tz_mining = L.layerGroup().addTo(map);
 
+        for (let j = 0; j < mine_pts.length; j++) {
+          let m_point = mine_pts[j];
+          let m_info = m_point[2]
+          let m_title = '\
+          <table>\
+            <tr><td align="center" colspan="2"><b><u>Mines</u></b></td></tr>\
+            <tr><td align="right"><b>Region</b>:</td><td>'+m_info.region+'</td></tr>\
+            <tr><td align="right"><b>Name</b>:</td><td>'+m_info.name+'</td></tr>\
+            <tr><td align="right"><b>GPS</b>:</td><td>'+m_point[1]+','+m_point[0]+'</td></tr>\
+            <tr><td align="right"><b>Commodity</b>:</td><td>'+m_info.commodity+'</td></tr>\
+            <tr><td align="right"><b>Status</b>:</td><td>'+m_info.miningexpl+'</td></tr>\
+            <tr><td align="right"><b>Economic Viability</b>:</td><td>'+m_info.econstatus+'</td></tr>\
+            <tr><td align="right"><b>Feasibility</b>:</td><td>'+m_info.feasibilit+'</td></tr>\
+          </table>';
+          let m_params = {"bubblingMouseEvents": true,
+          "color": "green",
+          "dashArray": null,
+          "dashOffset": null,
+          "fill": true,
+          "fillColor": "green",
+          "fillOpacity": 0.2,
+          "fillRule": "evenodd",
+          "lineCap": "round",
+          "lineJoin": "round",
+          "opacity": 1.0,
+          "radius": 5,
+          "stroke": true,
+          "weight": 1
+        };
+          let m_circle = L.circleMarker([m_point[1], m_point[0]], m_params);
+          m_circle.bindPopup(m_title);
+          tz_mining.addLayer(m_circle);
+
+      };
+        
         vecTileLayer.filter = function(filter) {
             let newhiddenIDs = [];
             let vt = this._vectorTiles;
