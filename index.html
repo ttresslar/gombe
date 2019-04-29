@@ -281,6 +281,14 @@
                     L.DomEvent.stop(e);
                 }
             });
+        map.on('click', function(e) {        
+        let popLocation= e.latlng;
+        let popup = L.popup()
+        .setLatLng(popLocation)
+        .setContent('<p>'+popLocation.lat.toFixed(5)+','+popLocation.lng.toFixed(5)+'</p>')
+        .openOn(map);        
+    });
+
         vecTileLayer.highlight = null;
         vecTileLayer.hidden = null;
         vecTileLayer.hiddenstyle = {
