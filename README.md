@@ -1,4 +1,6 @@
-This is a slight modification of the tzmapping tool. We have added cell phone reception data and mining data, both of which we found useful for identifying target areas. We have also added a form to report any issues with the map data. The form is connected to a google sheet that we are sharing with open street maps, so that the data is updated.   
+This is a slight modification of the tzmapping tool. We have added cell phone reception data and mining data, both of which we found useful for identifying target areas. We have also added a form to report any issues with the map data. The form is connected to a google sheet that we are sharing with open street maps, so that the data is updated. 
+
+*I have also created integrations for the epicollect5 API and google sheets. I did not include them because there is no 'plug-and-play' solution. You will have to generate your own keys and input your own user data. I am happy to share and walk you through the integrations, just send me an email or message me on github.
 
 ---------------------------------------------------------------
 Webmap (using leaflet) for visualizing village cluster identification and prioritization for off-grid electrification in Tanzania.
