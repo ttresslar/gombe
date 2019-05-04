@@ -503,10 +503,12 @@
             position: "left"
         }).addTo(map);
 
-        let gsm2g = L.tileLayer("https://www.mobilecoveragemaps.com/static/raster/2G_coverage/{z}/{x}/{-y}.png", {attribution: '&copy; <a href="https://www.mobilecoveragemaps.com/map_tz/">Mobile Coverage Maps</a>'});
+        let gsm2g = L.tileLayer("https://www.mobilecoveragemaps.com/static/raster/2G_coverage/{z}/{x}/{-y}.png");
         let gsm3g = L.tileLayer("https://www.mobilecoveragemaps.com/static/raster/3G_coverage/{z}/{x}/{-y}.png", {attribution: '&copy; <a href="https://www.mobilecoveragemaps.com/map_tz/">Mobile Coverage Maps</a>'});
         let gsm4g = L.tileLayer("https://www.mobilecoveragemaps.com/static/raster/4G_coverage/{z}/{x}/{-y}.png", {attribution: '&copy; <a href="https://www.mobilecoveragemaps.com/map_tz/">Mobile Coverage Maps</a>'});
-        
+        gsm2g.setOpacity(0.3);
+        gsm3g.setOpacity(0.3);
+        gsm4g.setOpacity(0.3);
         let overlayMaps = {
             "Priority Clusters": markers,
             "Mine Locations" : tz_mining,
